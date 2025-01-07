@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Chatbot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f9f9f9;
+    }
+    #chat-container {
+      width: 400px;
+      height: 600px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    #chat-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      background-color: #fff;
+    }
+    #chat-messages div {
+      margin: 5px 0;
+    }
+    .user-message {
+      text-align: right;
+      color: #fff;
+      background-color: #007bff;
+      padding: 8px 12px;
+      border-radius: 10px;
+      max-width: 70%;
+      margin-left: auto;
+    }
+    .bot-message {
+      text-align: left;
+      background-color: #f1f1f1;
+      padding: 8px 12px;
+      border-radius: 10px;
+      max-width: 70%;
+    }
+    #chat-input {
+      display: flex;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-top: 1px solid #ddd;
+    }
+    #chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+    }
+    #chat-input button {
+      margin-left: 10px;
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container">
+    <div id="chat-messages"></div>
+    <div id="chat-input">
+      <input type="text" id="user-input" placeholder="Ask me anything..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    async function sendMessage() {
+      const userInput = document.getElementById('user-input').value;
+      if (!userInput) return;
+
+      // Display user message
+      const chatMessages = document.getElementById('chat-messages');
+      const userMessageDiv = document.createElement('div');
+      userMessageDiv.className = 'user-message';
+      userMessageDiv.textContent = userInput;
+      chatMessages.appendChild(userMessageDiv);
+      document.getElementById('user-input').value = '';
+
+      // Send request to backend
+      const response = await fetch('/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userInput }),
+      });
+
+      const data = await response.json();
+      const botMessageDiv = document.createElement('div');
+      botMessageDiv.className = 'bot-message';
+      botMessageDiv.textContent = data.response;
+      chatMessages.appendChild(botMessageDiv);
+
+      // Scroll to the bottom
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+  </script>
+</body>
+</html>
