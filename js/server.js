@@ -27,7 +27,7 @@ app.post("/send-email", async (req, res) => {
         from: process.env.EMAIL_USER,
         to: email,
         subject: "Reservation Confirmation",
-        text: `Hi ${name},\n\nThank you for reserving a table with us!\n\nReservation Details:\n- Date & Time: ${datetime}\n- Guests: ${select1}\n- Special Request: ${message || "None"}\n\nBest regards,\nRestoran Team`,
+        text: `Hi ${name},\n\nYour reservation details:\n- Date & Time: ${datetime}\n- Guests: ${select1}\n- Special Request: ${message || "None"}\n\nThank you for booking with Restoran!`,
     };
 
     try {
