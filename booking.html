@@ -136,7 +136,7 @@
                         <p>Thank you! Your reservation has been confirmed. We have received your reservation.</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="closePopup()">Close</button>
+                        <button type="button" class="btn btn-secondary" onclick="redirectToHome()">Close</button>
                     </div>
                 </div>
             </div>
@@ -164,6 +164,10 @@
 
         function closePopup() {
             document.getElementById('confirmationModal').style.display = 'none';
+        }
+
+        function redirectToHome() {
+            window.location.href = 'index.html';
         }
 
         function submitReservation() {
