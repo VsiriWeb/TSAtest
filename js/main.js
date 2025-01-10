@@ -107,43 +107,4 @@
         },
     });
 
-    // Send reservation data to backend
-    async function sendReservation() {
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const datetime = document.getElementById("datetime").value;
-        const select1 = document.getElementById("select1").value;
-        const message = document.getElementById("message").value;
-
-        // Validation
-        if (!name || !email || !datetime || !select1) {
-            alert("Please fill in all required fields.");
-            return;
-        }
-
-        const reservationData = { name, email, datetime, select1, message };
-
-        try {
-            const response = await fetch("http://localhost:5000/send-email", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(reservationData),
-            });
-
-            if (response.ok) {
-                alert("Reservation confirmed! A confirmation email has been sent.");
-            } else {
-                alert("Failed to send reservation email. Please try again.");
-            }
-        } catch (error) {
-            console.error("Error:", error);
-            alert("Error occurred while making reservation.");
-        }
-    }
-
-    // Attach sendReservation to button click
-    document.querySelector("button[type='button']").addEventListener("click", sendReservation);
-
 })(jQuery);
