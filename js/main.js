@@ -109,11 +109,11 @@
 
     // Send reservation data to backend
     async function sendReservation() {
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const datetime = document.getElementById("datetime").value;
-        const select1 = document.getElementById("select1").value;
-        const message = document.getElementById("message").value;
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const datetime = document.getElementById("datetime").value.trim();
+        const select1 = document.getElementById("select1").value.trim();
+        const message = document.getElementById("message").value.trim();
 
         // Validation
         if (!name || !email || !datetime || !select1) {
@@ -133,7 +133,9 @@
             });
 
             if (response.ok) {
+                // Show confirmation message
                 alert("Reservation confirmed! A confirmation email has been sent.");
+                document.getElementById("reservationForm").reset(); // Clear the form
             } else {
                 alert("Failed to send reservation email. Please try again.");
             }
@@ -143,7 +145,12 @@
         }
     }
 
-    // Attach sendReservation to button click
-    document.querySelector("button[type='button']").addEventListener("click", sendReservation);
+    // Attach sendReservation to button click dynamically to avoid multiple bindings
+    document.addEventListener("DOMContentLoaded", function () {
+        const reservationButton = document.querySelector("button[type='button']");
+        if (reservationButton) {
+            reservationButton.addEventListener("click", sendReservation);
+        }
+    });
 
 })(jQuery);
