@@ -114,6 +114,74 @@
             }
         }
     });
+    const express = require("express");
+const bodyParser = require("body-parser");
+const nodemailer = require("nodemailer");
+const cors = require("cors");
+
+const app = express();
+app.use(bodyParser.json());
+app.use(cors());
+
+app.post("/send-email", async (req, res) => {
+    const { name, email, datetime, select1, message } = req.body;
+
+    const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+            user: "your_email@gmail.com", // Replace with your email
+            pass: "your_email_password" // Replace with your email password or app-specific password
+        },
+    });
+
+    const mailOptions = {
+        from: "your_email@gmail.com", // Replace with your email
+        to: email,
+        subject: "Reservation Confirmation",
+        text: `Hi ${name},\n\nThank you for reserving a table with us!\n\nHere are your details:\nDate & Time: ${datetime}\nNumber of People: ${select1}\nSpecial Request: ${message}\n\nWe look forward to serving you!\n\nBest Regards,\nEcoEats Team`,
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+        res.status(200).json({ message: "Email sent successfully!" });
+    } catch (error) {
+        console.error("Error sending email:", error);
+        res.status(500).json({ message: "Failed to send email" });
+    }
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+async function sendReservation() {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const datetime = document.getElementById("datetime").value;
+    const select1 = document.getElementById("select1").value;
+    const message = document.getElementById("message").value;
+
+    const reservationData = { name, email, datetime, select1, message };
+
+    try {
+        const response = await fetch("http://localhost:5000/send-email", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(reservationData),
+        });
+
+        if (response.ok) {
+            alert("Reservation confirmed! An email has been sent to your inbox.");
+        } else {
+            alert("Failed to send reservation email. Please try again.");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Error occurred while making reservation.");
+    }
+}
+
     
 })(jQuery);
 
