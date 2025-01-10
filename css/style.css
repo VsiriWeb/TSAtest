@@ -6,6 +6,10 @@
     --bs-primary: var(--primary);
 }
 
+.text-white-custom {
+    color: white !important;
+}
+
 .ff-secondary {
     font-family: 'Pacifico', cursive;
 }
