@@ -115,13 +115,28 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="button">Book Now</button>
+                                    <button class="btn btn-primary w-100 py-3" type="button" onclick="showPopup()">Book Now</button>
                                 </div>
                             </div>
                         </form>
-                        <div id="confirmationMessage" class="text-success mt-3" style="display: none;">
-                            <h5>Thank you! Your reservation has been confirmed. We have received your reservation.</h5>
-                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirmation Popup -->
+        <div class="modal" id="confirmationModal" tabindex="-1" role="dialog" style="display: none;">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Reservation Confirmed</h5>
+                        <button type="button" class="btn-close" onclick="closePopup()" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Thank you! Your reservation has been confirmed. We have received your reservation.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="closePopup()">Close</button>
                     </div>
                 </div>
             </div>
@@ -141,6 +156,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function showPopup() {
+            document.getElementById('confirmationModal').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('confirmationModal').style.display = 'none';
+        }
+    </script>
 </body>
 
 </html>
