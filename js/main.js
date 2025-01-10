@@ -109,15 +109,14 @@
 
     // Send reservation data to backend
     async function sendReservation() {
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const datetime = document.getElementById("datetime").value.trim();
-        const select1 = document.getElementById("select1").value.trim();
-        const message = document.getElementById("message").value.trim();
+        const name = $("#name").val().trim();
+        const email = $("#email").val().trim();
+        const datetime = $("#datetime").val().trim();
+        const select1 = $("#select1").val().trim();
+        const message = $("#message").val().trim();
 
-        // Validation
         if (!name || !email || !datetime || !select1) {
-            alert("Please fill in all required fields.");
+            alert("Please fill in all fields.");
             return;
         }
 
@@ -126,22 +125,19 @@
         try {
             const response = await fetch("http://localhost:5000/send-email", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(reservationData),
             });
 
             if (response.ok) {
-                // Show confirmation message
-                alert("Reservation confirmed! A confirmation email has been sent.");
-                document.getElementById("reservationForm").reset(); // Clear the form
+                $("#confirmationMessage").fadeIn();
+                $("#reservationForm")[0].reset();
             } else {
-                alert("Failed to send reservation email. Please try again.");
+                alert("Failed to send email. Try again.");
             }
         } catch (error) {
             console.error("Error:", error);
-            alert("Error occurred while making reservation.");
+            alert("Error occurred. Try again.");
         }
     }
 
