@@ -115,7 +115,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="button" onclick="showPopup()">Book Now</button>
+                                    <button class="btn btn-primary w-100 py-3" type="button" onclick="submitReservation()">Book Now</button>
                                 </div>
                             </div>
                         </form>
@@ -164,6 +164,11 @@
 
         function closePopup() {
             document.getElementById('confirmationModal').style.display = 'none';
+        }
+
+        function submitReservation() {
+            showPopup();
+            document.getElementById('reservationForm').reset();
         }
     </script>
 </body>
