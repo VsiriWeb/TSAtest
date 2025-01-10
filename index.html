@@ -35,18 +35,27 @@
 
 <body>
     <div class="container-xxl bg-white p-0">
-       <!-- Spinner Start -->
-<div id="spinner" class="show bg-white position-fixed d-flex align-items-center justify-content-center w-100 vh-100 top-0">
-    <div class="d-flex flex-row align-items-center">
-        <div class="spinner-border text-primary me-3" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed d-flex flex-column align-items-center justify-content-center w-100 vh-100 top-0">
+            <!-- Title centered above -->
+            <h1 class="display-3 text-primary text-center mb-3">Savor the <br>Goodness of Nature</h1>
+            
+            <!-- Spinning image -->
+            <div class="d-flex flex-column align-items-center">
+                <div class="spinner-border text-primary mb-3" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <img class="img-fluid rounded-circle" src="img/hero.png" alt="Delicious Vegan Salad" style="width: 150px; height: 150px;">
+            </div>
+            
+            <!-- Text below -->
+            <p class="text-secondary text-center mt-3 px-4">
+                Experience the perfect blend of delicious plant-based meals and sustainability. Every bite you take contributes to a greener planet. Join us in celebrating eco-friendly dining with flavors inspired by the Earth.
+            </p>
         </div>
-        <div>
-            <h5 class="mb-0 text-secondary">Loading, please wait...</h5>
-        </div>
+        <!-- Spinner End -->
     </div>
-</div>
-<!-- Spinner End -->
+</body>
 
 
 
