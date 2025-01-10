@@ -12,7 +12,7 @@ app.post("/send-email", async (req, res) => {
     const { name, email, datetime, select1, message } = req.body;
 
     if (!name || !email || !datetime || !select1) {
-        return res.status(400).json({ message: "All fields are required." });
+        return res.status(400).json({ message: "Missing required fields" });
     }
 
     const transporter = nodemailer.createTransport({
@@ -27,7 +27,7 @@ app.post("/send-email", async (req, res) => {
         from: process.env.EMAIL_USER,
         to: email,
         subject: "Reservation Confirmation",
-        text: `Hi ${name},\n\nThank you for reserving a table!\nDetails:\n- Date & Time: ${datetime}\n- Guests: ${select1}\n- Special Request: ${message}`,
+        text: `Hi ${name},\n\nThank you for reserving a table with us!\n\nReservation Details:\n- Date & Time: ${datetime}\n- Guests: ${select1}\n- Special Request: ${message || "None"}\n\nBest regards,\nRestoran Team`,
     };
 
     try {
@@ -35,7 +35,7 @@ app.post("/send-email", async (req, res) => {
         res.status(200).json({ message: "Email sent successfully." });
     } catch (error) {
         console.error("Error sending email:", error);
-        res.status(500).json({ message: "Failed to send email." });
+        res.status(500).json({ message: `Failed to send email: ${error.message}` });
     }
 });
 
