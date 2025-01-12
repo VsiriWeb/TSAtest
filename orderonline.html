@@ -197,27 +197,30 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4">
-                    <!-- Order Summary -->
-                    <h3>Order Summary</h3>
-                    <p>Total: <span id="total">$0.00</span></p>
-                    <h5>Delivery Details</h5>
-                    <form onsubmit="submitOrder(event)">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="address" class="form-label">Address</label>
-                            <textarea class="form-control" id="address" rows="3" placeholder="Your Address" required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="contact" class="form-label">Contact Number</label>
-                            <input type="tel" class="form-control" id="contact" placeholder="Your Contact Number" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Place Order</button>
-                    </form>
-                </div>
+<div class="col-lg-4">
+    <!-- Order Summary -->
+    <h3>Order Summary</h3>
+    <div id="orderSummary">
+        <p>No items selected</p>
+    </div>
+    <p>Total: <span id="total">$0.00</span></p>
+    <h5>Delivery Details</h5>
+    <form onsubmit="submitOrder(event)">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <textarea class="form-control" id="address" rows="3" placeholder="Your Address" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="contact" class="form-label">Contact Number</label>
+            <input type="tel" class="form-control" id="contact" placeholder="Your Contact Number" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Place Order</button>
+    </form>
+</div>
             </div>
         </div>
 
@@ -288,23 +291,41 @@
         <script>
         let total = 0;
 
-        function updateTotal(price, id) {
-            const quantity = document.getElementById(id).value;
-            total = 0;
-            const items = document.querySelectorAll('.order-item');
-            items.forEach(item => {
-                const itemPrice = parseFloat(item.getAttribute('data-price'));
-                const itemId = item.getAttribute('data-id');
-                const itemQuantity = document.getElementById(itemId).value;
-                total += itemPrice * itemQuantity;
-            });
-            document.getElementById('total').innerText = $${total.toFixed(2)};
+function updateTotal(price, id) {
+    const quantity = parseInt(document.getElementById(id).value) || 0;
+    const items = document.querySelectorAll('.order-item');
+    total = 0;
+    let receipt = '';
+    
+    items.forEach(item => {
+        const itemPrice = parseFloat(item.getAttribute('data-price'));
+        const itemId = item.getAttribute('data-id');
+        const itemQuantity = parseInt(document.getElementById(itemId).value) || 0;
+
+        if (itemQuantity > 0) {
+            receipt += `<p>${item.querySelector('.card-title').innerText} (x${itemQuantity}): $${(itemPrice * itemQuantity).toFixed(2)}</p>`;
         }
 
-        function submitOrder(event) {
-            event.preventDefault();
-            alert('Your order has been placed successfully!');
-        }
+        total += itemPrice * itemQuantity;
+    });
+
+    document.getElementById('orderSummary').innerHTML = receipt || '<p>No items selected</p>';
+    document.getElementById('total').innerText = `$${total.toFixed(2)}`;
+}
+
+function submitOrder(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const address = document.getElementById('address').value;
+    const contact = document.getElementById('contact').value;
+
+    if (total > 0) {
+        alert(`Thank you, ${name}! Your order has been placed.\nTotal: $${total.toFixed(2)}\nDelivery to: ${address}\nContact: ${contact}`);
+    } else {
+        alert('Please select at least one item before placing an order.');
+    }
+}
+
     </script>
 </body>
 
