@@ -9,13 +9,7 @@
             background-color: #f0fff0; /* Light green color */
         }
 
-.col-lg-6 .row.g-3 {
-    margin-top: -20px; /* Move the entire grid of images up */
-}
 
-.col-lg-6 img {
-    margin-bottom: 0; /* Ensure there’s no unnecessary bottom margin on the images */
-}
 
 
 .text-white-custom {
