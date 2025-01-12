@@ -32,30 +32,33 @@
     <link href="css/style.css" rel="stylesheet">
     <style>
         .small-img {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             object-fit: cover;
             margin: 0 auto;
         }
-        .order-item {
-            text-align: center;
-        }
-        .container-custom {
+
+        .order-container {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 1rem;
+            gap: 2rem;
         }
+
         .order-section {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 1rem;
+            gap: 0.5rem;
         }
+
         .order-summary {
-            width: 300px;
-            margin-left: auto;
+            width: 250px;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         body {
             overflow-x: hidden;
         }
@@ -86,85 +89,85 @@
         </nav>
         <!-- Navbar End -->
 
-        <div class="container py-5 container-custom">
+        <div class="container py-5 order-container">
             <div class="order-section">
                 <!-- Item Cards -->
                 <div class="card order-item" data-price="12.99" data-id="item1">
                     <img src="img/menu-1.jpg" class="card-img-top small-img" alt="Fresh Garden Salad">
-                    <div class="card-body">
-                        <h5 class="card-title">Fresh Garden Salad</h5>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Fresh Garden Salad</h6>
                         <p class="card-text">$12.99</p>
                         <input type="number" id="item1" class="form-control" min="0" value="0" onchange="updateTotal(12.99, 'item1')">
                     </div>
                 </div>
                 <div class="card order-item" data-price="16.99" data-id="item2">
                     <img src="img/menu-3.jpg" class="card-img-top small-img" alt="Vegan Margherita Pizza">
-                    <div class="card-body">
-                        <h5 class="card-title">Vegan Margherita Pizza</h5>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Vegan Margherita Pizza</h6>
                         <p class="card-text">$16.99</p>
                         <input type="number" id="item2" class="form-control" min="0" value="0" onchange="updateTotal(16.99, 'item2')">
                     </div>
                 </div>
                 <div class="card order-item" data-price="13.99" data-id="item3">
                     <img src="img/menu-5.jpg" class="card-img-top small-img" alt="Stuffed Bell Peppers">
-                    <div class="card-body">
-                        <h5 class="card-title">Stuffed Bell Peppers</h5>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Stuffed Bell Peppers</h6>
                         <p class="card-text">$13.99</p>
                         <input type="number" id="item3" class="form-control" min="0" value="0" onchange="updateTotal(13.99, 'item3')">
                     </div>
                 </div>
                 <div class="card order-item" data-price="11.99" data-id="item4">
                     <img src="img/menu-7.jpg" class="card-img-top small-img" alt="Avocado Veggie Wrap">
-                    <div class="card-body">
-                        <h5 class="card-title">Avocado Veggie Wrap</h5>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Avocado Veggie Wrap</h6>
                         <p class="card-text">$11.99</p>
                         <input type="number" id="item4" class="form-control" min="0" value="0" onchange="updateTotal(11.99, 'item4')">
                     </div>
                 </div>
                 <div class="card order-item" data-price="4.99" data-id="item5">
                     <img src="img/menu-9.jpg" class="card-img-top small-img" alt="Vegan Energy Bar">
-                    <div class="card-body">
-                        <h5 class="card-title">Vegan Energy Bar</h5>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Vegan Energy Bar</h6>
                         <p class="card-text">$4.99</p>
                         <input type="number" id="item5" class="form-control" min="0" value="0" onchange="updateTotal(4.99, 'item5')">
                     </div>
                 </div>
                 <div class="card order-item" data-price="14.99" data-id="item6">
                     <img src="img/menu-2.jpg" class="card-img-top small-img" alt="Quinoa Power Bowl">
-                    <div class="card-body">
-                        <h5 class="card-title">Quinoa Power Bowl</h5>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Quinoa Power Bowl</h6>
                         <p class="card-text">$14.99</p>
                         <input type="number" id="item6" class="form-control" min="0" value="0" onchange="updateTotal(14.99, 'item6')">
                     </div>
                 </div>
                 <div class="card order-item" data-price="9.99" data-id="item7">
                     <img src="img/menu-4.jpg" class="card-img-top small-img" alt="Berry Bliss Smoothie">
-                    <div class="card-body">
-                        <h5 class="card-title">Berry Bliss Smoothie</h5>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Berry Bliss Smoothie</h6>
                         <p class="card-text">$9.99</p>
                         <input type="number" id="item7" class="form-control" min="0" value="0" onchange="updateTotal(9.99, 'item7')">
                     </div>
                 </div>
                 <div class="card order-item" data-price="15.49" data-id="item8">
                     <img src="img/menu-6.jpg" class="card-img-top small-img" alt="Tofu Veggie Stir Fry">
-                    <div class="card-body">
-                        <h5 class="card-title">Tofu Veggie Stir Fry</h5>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Tofu Veggie Stir Fry</h6>
                         <p class="card-text">$15.49</p>
                         <input type="number" id="item8" class="form-control" min="0" value="0" onchange="updateTotal(15.49, 'item8')">
                     </div>
                 </div>
                 <div class="card order-item" data-price="14.49" data-id="item9">
                     <img src="img/menu-8.jpg" class="card-img-top small-img" alt="Thai Coconut Curry">
-                    <div class="card-body">
-                        <h5 class="card-title">Thai Coconut Curry</h5>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Thai Coconut Curry</h6>
                         <p class="card-text">$14.49</p>
                         <input type="number" id="item9" class="form-control" min="0" value="0" onchange="updateTotal(14.49, 'item9')">
                     </div>
                 </div>
                 <div class="card order-item" data-price="13.49" data-id="item10">
                     <img src="img/menu-10.jpg" class="card-img-top small-img" alt="Chickpea Pasta Primavera">
-                    <div class="card-body">
-                        <h5 class="card-title">Chickpea Pasta Primavera</h5>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Chickpea Pasta Primavera</h6>
                         <p class="card-text">$13.49</p>
                         <input type="number" id="item10" class="form-control" min="0" value="0" onchange="updateTotal(13.49, 'item10')">
                     </div>
@@ -172,7 +175,7 @@
             </div>
 
             <div class="order-summary">
-                <h3>Order Summary</h3>
+                <h4>Order Summary</h4>
                 <div id="orderSummary">
                     <p>No items selected</p>
                 </div>
