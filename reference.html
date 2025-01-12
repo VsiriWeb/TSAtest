@@ -30,6 +30,23 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+	
+    <style>
+        .scrollable-panel {
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .large-button {
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            margin: 10px;
+        }
+    </style>
+	
 </head>
 
 <body>
@@ -75,80 +92,66 @@
         <!-- Navbar & Hero End -->
 
 
-        <!-- Service Start -->
-             <div class="container py-5">
-            <div class="text-center mb-5">
-                <h3 class="text-primary">Additional Resources</h3>
-                <a href="copyright-checklist.pdf" class="btn btn-primary me-3">Copyright Checklist</a>
-                <a href="work-log.pdf" class="btn btn-primary">Work Log</a>
-            </div>
+       <div class="container py-5 text-center">
+            <a href="copyright-checklist.pdf" class="btn btn-primary large-button">Copyright Checklist</a>
+            <a href="work-log.pdf" class="btn btn-primary large-button">Work Log</a>
         </div>
 
         <!-- Scrollable Panels Section -->
+ <!-- Scrollable Panels Section -->
         <div class="container py-5">
             <div class="row g-4">
                 <!-- Panel 1 -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-body overflow-auto">
-                            <h5 class="card-title">Bootstrap</h5>
-                            <p>We used Bootstrap as the framework for our website to streamline the design and development process. With Bootstrap’s responsive grid system, we were able to create a layout that adapts seamlessly to different screen sizes.</p>
-                            <p><strong>Citation:</strong> "Bootstrap." Bootstrap, v5.0, <a href="https://getbootstrap.com/">https://getbootstrap.com/</a>.</p>
-                        </div>
+                    <div class="scrollable-panel">
+                        <h5 class="text-primary">Bootstrap</h5>
+                        <p>We used Bootstrap as the framework for our website to streamline the design and development process. With Bootstrap’s responsive grid system, we were able to create a layout that adapts seamlessly to different screen sizes, ensuring a smooth experience for users on both mobile and desktop devices.</p>
+                        <p><strong>Citation:</strong> "Bootstrap." Bootstrap, v5.0, <a href="https://getbootstrap.com/">https://getbootstrap.com/</a>.</p>
                     </div>
                 </div>
                 <!-- Panel 2 -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-body overflow-auto">
-                            <h5 class="card-title">Research Prior to Building Website</h5>
-                            <p>We researched farm-to-table practices, sustainable vegetarian cooking, and preparation methods to shape our restaurant's theme of serving locally sourced, eco-friendly food.</p>
-                            <p><strong>Citation:</strong> Elshaer, Ibrahim A., et al., MDPI, 2023. Multiple articles cited. </p>
-                        </div>
+                    <div class="scrollable-panel">
+                        <h5 class="text-primary">Research Prior to Building Website</h5>
+                        <p>We researched farm-to-table practices, sustainable vegetarian cooking, and preparation methods to shape our restaurant's theme of serving locally sourced, eco-friendly food.</p>
+                        <p><strong>Citation:</strong> Multiple research papers from sources like MDPI, ResearchGate, DigiComply, and WISK.ai (detailed list provided in references).</p>
                     </div>
                 </div>
                 <!-- Panel 3 -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-body overflow-auto">
-                            <h5 class="card-title">Logo API</h5>
-                            <p>We used the non-copyrighted Logo API from API Ninjas to easily generate and display logos on our website.</p>
-                            <p><strong>Citation:</strong> "Logo API." API Ninjas, <a href="https://www.api-ninjas.com/api/logo">https://www.api-ninjas.com/api/logo</a>.</p>
-                        </div>
+                    <div class="scrollable-panel">
+                        <h5 class="text-primary">Logo API</h5>
+                        <p>We used the non-copyrighted Logo API from API Ninjas to easily generate and display logos on our website. This API allows us to access a wide variety of logo designs that can be integrated into our website.</p>
+                        <p><strong>Citation:</strong> "Logo API." API Ninjas, <a href="https://www.api-ninjas.com/api/logo">https://www.api-ninjas.com/api/logo</a>.</p>
                     </div>
                 </div>
                 <!-- Panel 4 -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-body overflow-auto">
-                            <h5 class="card-title">Unsplash for Images</h5>
-                            <p>Unsplash offers a large collection of high-quality photos for personal and business projects. Photos are free to use and photographer approved.</p>
-                            <p><strong>Citation:</strong> Multiple images cited from Unsplash.</p>
-                        </div>
+                    <div class="scrollable-panel">
+                        <h5 class="text-primary">Unsplash for Images</h5>
+                        <p>Unsplash offers a large collection of high-quality photos for personal and business projects. The platform features a variety of images from photographers around the world, giving users access to beautiful pictures for their creative work. Photos are free to use and photographer approved.</p>
+                        <p><strong>Citations:</strong> Multiple images sourced from Unsplash, detailed in our visual references list.</p>
                     </div>
                 </div>
                 <!-- Panel 5 -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-body overflow-auto">
-                            <h5 class="card-title">MIT OpenCourseWare</h5>
-                            <p>MIT provides a collection of free resources for learning HTML graphics through JavaScript.</p>
-                            <p><strong>Citation:</strong> "MIT OpenCourseWare." MIT, <a href="https://ocw.mit.edu">https://ocw.mit.edu</a>.</p>
-                        </div>
+                    <div class="scrollable-panel">
+                        <h5 class="text-primary">MIT OpenCourseWare</h5>
+                        <p>MIT provides a collection of free resources for learning HTML graphics through JavaScript, making it easier for developers to create interactive and dynamic web designs. These resources help users understand how to use JavaScript to manipulate HTML elements for graphic creation.</p>
+                        <p><strong>Citation:</strong> "MIT OpenCourseWare." Massachusetts Institute of Technology, <a href="https://ocw.mit.edu">https://ocw.mit.edu</a>.</p>
                     </div>
                 </div>
                 <!-- Panel 6 -->
                 <div class="col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-body overflow-auto">
-                            <h5 class="card-title">Google/Font APIs</h5>
-                            <p>We used the Google Maps API to enhance our contact info section and Google Fonts API for typography.</p>
-                            <p><strong>Citation:</strong> Google Developers, <a href="https://developers.google.com/maps">https://developers.google.com/maps</a>.</p>
-                        </div>
+                    <div class="scrollable-panel">
+                        <h5 class="text-primary">Google/Font APIs</h5>
+                        <p>We used the Google Maps API to enhance our contact info section by embedding an interactive map that shows our location. We also used the Google Fonts API to enhance the typography of our website by incorporating a variety of web-safe and stylish fonts.</p>
+                        <p><strong>Citations:</strong> Google Maps API (<a href="https://developers.google.com/maps">https://developers.google.com/maps</a>) and Google Fonts API (<a href="https://developers.google.com/fonts">https://developers.google.com/fonts</a>).</p>
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- Service End -->
         
 
