@@ -572,6 +572,19 @@
                 </div>
             </div>
         </div>
+<script>
+    function handleSignUp() {
+        const emailInput = document.getElementById('emailInput');
+        const email = emailInput.value.trim();
+
+        if (email) {
+            alert(`Thank you for signing up with the email: ${email}`);
+            emailInput.value = ''; // Reset the input field
+        } else {
+            alert('Please enter a valid email address.');
+        }
+    }
+</script>
         <!-- Footer End -->
 
 
@@ -594,19 +607,7 @@
     <!-- Template Javascript -->
     <script src="js/main.js"> </script>
 	
-<script>
-    function handleSignUp() {
-        const emailInput = document.getElementById('emailInput');
-        const email = emailInput.value.trim();
 
-        if (email) {
-            alert(`Thank you for signing up with the email: ${email}`);
-            emailInput.value = ''; // Reset the input field
-        } else {
-            alert('Please enter a valid email address.');
-        }
-    }
-</script>
 
 </body>
 
