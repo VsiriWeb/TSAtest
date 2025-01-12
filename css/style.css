@@ -5,7 +5,9 @@
     --dark: #0F172B;
     --bs-primary: var(--primary);
 }
-
+ body {
+            background-color: #f0fff0; /* Light green color */
+        }
 .text-white-custom {
     color: white !important;
 }
