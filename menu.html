@@ -288,7 +288,7 @@
             <a class="btn btn-primary py-3 px-5" href="orderonline.html">Order Now</a>
         </div>
 
-        <!-- Footer Start -->
+         <!-- Footer Start -->
            <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">
@@ -330,6 +330,19 @@
                 </div>
             </div>
         </div>
+<script>
+    function handleSignUp() {
+        const emailInput = document.getElementById('emailInput');
+        const email = emailInput.value.trim();
+
+        if (email) {
+            alert(`Thank you for signing up with the email: ${email}`);
+            emailInput.value = ''; // Reset the input field
+        } else {
+            alert('Please enter a valid email address.');
+        }
+    }
+</script>
         <!-- Footer End -->
 
         <!-- Back to Top -->
