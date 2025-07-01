@@ -304,88 +304,116 @@
                 </div>
 
                 <!-- New Customer Feedback Section -->
-                <div class="mt-5 wow fadeInUp" data-wow-delay="0.3s">
-                    <h3>Customer Feedback Packages</h3>
-                    <p>Choose a feedback package that best suits your experience with us.</p>
-                    <table class="table table-bordered">
-                        <thead class="table-light">
-                            <tr>
-                                <th>Package Name</th>
-                                <th>Description</th>
-                                <th>Includes</th>
-                                <th>Cost</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Basic Feedback</td>
-                                <td class="text">Quick survey about your dining experience</td>
-                                <td>5 questions, anonymous</td>
-                                <td>Free</td>
-                            </tr>
-                            <tr>
-                                <td>Detailed Feedback</td>
-                                <td class="text">In-depth survey with detailed questions and suggestions</td>
-                                <td>15 questions, optional contact info</td>
-                                <td>Free</td>
-                            </tr>
-                            <tr>
-                                <td>VIP Feedback</td>
-                                <td class="text">Includes follow-up call and personalized response</td>
-                                <td>20 questions, contact required</td>
-                                <td>$10</td>
-                            </tr>
-                        </tbody>
-                    </table>
+           <!-- New Customer Feedback Section -->
+<div class="mt-5 wow fadeInUp" data-wow-delay="0.3s">
+    <h3>Customer Feedback Packages</h3>
+    <p>Choose a feedback package that best suits your experience with us.</p>
+    <table class="table table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th>Package Name</th>
+                <th>Description</th>
+                <th>Includes</th>
+                <th>Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Basic Feedback</td>
+                <td class="text">Quick survey about your dining experience</td>
+                <td>5 questions, anonymous</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <td>Detailed Feedback</td>
+                <td class="text">In-depth survey with detailed questions and suggestions</td>
+                <td>15 questions, optional contact info</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <td>VIP Feedback</td>
+                <td class="text">Includes follow-up call and personalized response</td>
+                <td>20 questions, contact required</td>
+                <td>$10</td>
+            </tr>
+        </tbody>
+    </table>
 
-                    <h3 class="mt-5">We Value Your Feedback</h3>
-                    <p>Please fill out the form below so we can improve your dining experience.</p>
+    <h3 class="mt-5">We Value Your Feedback</h3>
+    <p>Please fill out the form below so we can improve your dining experience.</p>
 
-                    <form action="https://example.com/submit-feedback" method="POST" class="row g-3">
-                        <div class="col-md-6">
-                            <label for="firstName" class="form-label">* First Name:</label>
-                            <input type="text" class="form-control" id="firstName" name="firstName" required>
-                        </div>
+    <form id="feedbackForm" method="POST" class="row g-3" novalidate>
+        <div class="col-md-6">
+            <label for="firstName" class="form-label">* First Name:</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" required>
+        </div>
 
-                        <div class="col-md-6">
-                            <label for="lastName" class="form-label">* Last Name:</label>
-                            <input type="text" class="form-control" id="lastName" name="lastName" required>
-                        </div>
+        <div class="col-md-6">
+            <label for="lastName" class="form-label">* Last Name:</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" required>
+        </div>
 
-                        <div class="col-md-6">
-                            <label for="email" class="form-label">* Email:</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label">* Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
 
-                        <div class="col-md-6">
-                            <label for="phone" class="form-label">Phone:</label>
-                            <input type="tel" class="form-control" id="phone" name="phone" maxlength="12">
-                        </div>
+        <div class="col-md-6">
+            <label for="phone" class="form-label">Phone:</label>
+            <input type="tel" class="form-control" id="phone" name="phone" maxlength="12">
+        </div>
 
-                        <div class="col-md-6">
-                            <label for="visitDate" class="form-label">Date of Visit:</label>
-                            <input type="date" class="form-control" id="visitDate" name="visitDate">
-                        </div>
+        <div class="col-md-6">
+            <label for="visitDate" class="form-label">Date of Visit:</label>
+            <input type="date" class="form-control" id="visitDate" name="visitDate">
+        </div>
 
-                        <div class="col-md-6">
-                            <label for="package" class="form-label">Feedback Package:</label>
-                            <select id="package" name="package" class="form-select">
-                                <option value="basic" selected>Basic Feedback</option>
-                                <option value="detailed">Detailed Feedback</option>
-                                <option value="vip">VIP Feedback</option>
-                            </select>
-                        </div>
+        <div class="col-md-6">
+            <label for="package" class="form-label">Feedback Package:</label>
+            <select id="package" name="package" class="form-select">
+                <option value="basic" selected>Basic Feedback</option>
+                <option value="detailed">Detailed Feedback</option>
+                <option value="vip">VIP Feedback</option>
+            </select>
+        </div>
 
-                        <div class="col-12">
-                            <label for="comments" class="form-label">* Comments:</label>
-                            <textarea class="form-control" id="comments" name="comments" rows="3" required></textarea>
-                        </div>
+        <div class="col-12">
+            <label for="comments" class="form-label">* Comments:</label>
+            <textarea class="form-control" id="comments" name="comments" rows="3" required></textarea>
+        </div>
 
-                        <div class="col-12">
-                            <input type="submit" value="Submit" class="btn btn-primary">
-                        </div>
-                    </form>
-                </div>
+        <div class="col-12">
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </div>
+    </form>
+
+    <div id="thankYouMessage" class="alert alert-success mt-3" style="display:none;">
+        Thank you for submitting the form!
+    </div>
+</div>
+
+<script>
+    const form = document.getElementById('feedbackForm');
+    const thankYouMessage = document.getElementById('thankYouMessage');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // prevent actual submission
+
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        thankYouMessage.style.display = 'block'; // show thank you
+
+        form.reset(); // clear form
+
+        setTimeout(() => {
+            thankYouMessage.style.display = 'none'; // hide message after 3s
+        }, 3000);
+    });
+</script>
+
                 <!-- End Customer Feedback Section -->
 
             </div>
